@@ -18,7 +18,7 @@ package io.github.lxgaming.sumsang.configuration;
 
 import java.io.File;
 
-import io.github.lxgaming.sumsang.util.LogManager;
+import io.github.lxgaming.sumsang.util.LogHelper;
 import net.minecraftforge.common.config.Configuration;
 
 public class Config {
@@ -40,7 +40,7 @@ public class Config {
 		this.poisonTime = getConfiguration().getInt("poisonTime", Configuration.CATEGORY_GENERAL, 5, 1, 1000, "Poison time in seconds.");
 		
 		getConfiguration().save();
-		LogManager.info("Configuration file successfully loaded.");
+		LogHelper.info("Configuration file successfully loaded.");
 	}
 	
 	public Configuration getConfiguration() {

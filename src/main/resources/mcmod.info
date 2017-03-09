@@ -2,7 +2,7 @@
   {
     "modid": "sumsang",
     "name": "Sumsang",
-    "description": "Sumsang is in no way affiliated with Samsung.",
+    "description": "Sumsang is in no way affiliated with Samsung\nPatreon - https://www.patreon.com/lxgaming\nSource - https://github.com/LXGaming/Sumsang",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "https://lxgaming.github.io/",

@@ -20,7 +20,6 @@ import io.github.lxgaming.sumsang.configuration.Config;
 import io.github.lxgaming.sumsang.init.SumsangAchievements;
 import io.github.lxgaming.sumsang.init.SumsangItems;
 import io.github.lxgaming.sumsang.proxy.CommonProxy;
-import io.github.lxgaming.sumsang.util.LogHelper;
 import io.github.lxgaming.sumsang.util.Reference;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -60,7 +59,7 @@ public class Sumsang {
 	
 	@Mod.EventHandler
 	public void fingerprintViolation(FMLFingerprintViolationEvent event) {
-		LogHelper.fatal("Certificate Fingerprint Violation Detected!");
+		throw new SecurityException("Certificate Fingerprint Violation Detected!");
 	}
 	
 	@Mod.EventHandler

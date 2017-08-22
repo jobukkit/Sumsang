@@ -22,7 +22,7 @@ if (file(signFile).exists()) {
 targetCompatibility = 1.8
 sourceCompatibility = 1.8
 
-group = "io.github.lxgaming.sumsang"
+group = "io.github.lxgaming"
 archivesBaseName = "Sumsang"
 version = "1.1.0"
 

@@ -24,7 +24,7 @@ archivesBaseName = "Sumsang"
 version = "1.1.0"
 
 minecraft {
-    version = "1.12.2-14.23.3.2655"
+    version = "1.12.2-14.23.5.2768"
     runDir = "run"
     mappings = "snapshot_20171003"
     makeObfSourceJar = false
@@ -52,9 +52,11 @@ dependencies {
 
 jar {
     from {
-        (configurations.compile - configurations.provided).collect {
+        (configurations.compile - configurations.provided).findAll({
+            it.isDirectory() || it.name.endsWith(".jar")
+        }).collect({
             it.isDirectory() ? it : zipTree(it)
-        }
+        })
     }
 
     exclude("dummyThing")

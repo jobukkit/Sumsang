@@ -3,17 +3,17 @@ buildscript {
         jcenter()
         maven {
             name = "minecraftforge"
-            url = "http://files.minecraftforge.net/maven"
+            url = "https://files.minecraftforge.net/maven"
         }
     }
 
     dependencies {
-        classpath("net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT")
+        classpath("net.minecraftforge.gradle:ForgeGradle:3.+")
     }
 }
 
 apply plugin: "java"
-apply plugin: "net.minecraftforge.gradle.forge"
+apply plugin: "net.minecraftforge.gradle"
 apply plugin: "signing"
 
 sourceCompatibility = 1.8
@@ -21,13 +21,25 @@ targetCompatibility = 1.8
 
 group = "io.github.lxgaming"
 archivesBaseName = "Sumsang"
-version = "1.1.0"
+version = "1.2.0"
 
 minecraft {
-    version = "1.12.2-14.23.5.2768"
-    runDir = "run"
-    mappings = "stable_39"
-    makeObfSourceJar = false
+    mappings(channel: "snapshot", version: "20190719-1.14.3")
+    runs {
+        client = {
+            properties("forge.logging.markers": "SCAN,REGISTRIES,REGISTRYDUMP")
+            properties("forge.logging.console.level": "debug")
+            workingDirectory(project.file("run").canonicalPath)
+            source(sourceSets.main)
+        }
+
+        server = {
+            properties("forge.logging.markers": "SCAN,REGISTRIES,REGISTRYDUMP")
+            properties("forge.logging.console.level": "debug")
+            workingDirectory(project.file("run").canonicalPath)
+            source(sourceSets.main)
+        }
+    }
 }
 
 configurations {
@@ -40,26 +52,10 @@ configurations {
 
 repositories {
     jcenter()
-    maven {
-        name = "minecraftforge"
-        url = "http://files.minecraftforge.net/maven"
-    }
 }
 
 dependencies {
-
-}
-
-jar {
-    from {
-        (configurations.compile - configurations.provided).findAll({
-            it.isDirectory() || it.name.endsWith(".jar")
-        }).collect({
-            it.isDirectory() ? it : zipTree(it)
-        })
-    }
-
-    exclude("dummyThing")
+    minecraft("net.minecraftforge:forge:1.14.4-28.0.13")
 }
 
 processResources {
@@ -67,8 +63,8 @@ processResources {
     rename("LICENSE", "LICENSE-" + archivesBaseName)
 
     from (sourceSets.main.resources.srcDirs) {
-        include("mcmod.info")
-        expand("version": version, "mcversion": minecraft.version)
+        include("META-INF/mods.toml")
+        expand("version": version)
     }
 }
 

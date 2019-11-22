@@ -18,40 +18,37 @@ package io.github.lxgaming.sumsang;
 
 import io.github.lxgaming.sumsang.configuration.Configuration;
 import io.github.lxgaming.sumsang.listener.RegistryListener;
-import io.github.lxgaming.sumsang.util.Reference;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.StartupMessageManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(value = Reference.ID)
+@Mod(value = Sumsang.ID)
 public class Sumsang {
     
+    public static final String ID = "sumsang";
+    public static final String NAME = "Sumsang";
+    public static final String VERSION = "${version}";
+    
     private static Sumsang instance;
-    private final Logger logger = LogManager.getLogger(Reference.NAME);
-    private final Configuration configuration = new Configuration();
+    private final Logger logger;
+    private final Configuration configuration;
     
     public Sumsang() {
         instance = this;
-        FMLJavaModLoadingContext.get().getModEventBus().register(this);
-        FMLJavaModLoadingContext.get().getModEventBus().register(new RegistryListener());
+        this.logger = LogManager.getLogger(Sumsang.NAME);
+        this.configuration = new Configuration();
         
         FMLJavaModLoadingContext.get().getModEventBus().register(getConfiguration());
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Sumsang.getInstance().getConfiguration().getSpec());
         
-        StartupMessageManager.addModMessage(String.format("%s v%s Initialized", Reference.NAME, Reference.VERSION));
-        getLogger().info("{} v{} Initialized", Reference.NAME, Reference.VERSION);
-    }
-    
-    @SubscribeEvent
-    public void setup(FMLCommonSetupEvent event) {
-        StartupMessageManager.addModMessage(String.format("%s v%s Setup", Reference.NAME, Reference.VERSION));
-        getLogger().info("{} v{} Setup", Reference.NAME, Reference.VERSION);
+        FMLJavaModLoadingContext.get().getModEventBus().register(new RegistryListener());
+        
+        StartupMessageManager.addModMessage(String.format("%s v%s Initialized", Sumsang.NAME, Sumsang.VERSION));
+        getLogger().info("{} v{} Initialized", Sumsang.NAME, Sumsang.VERSION);
     }
     
     public static Sumsang getInstance() {

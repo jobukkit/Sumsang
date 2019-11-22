@@ -17,7 +17,6 @@
 package io.github.lxgaming.sumsang.item;
 
 import io.github.lxgaming.sumsang.Sumsang;
-import io.github.lxgaming.sumsang.util.Reference;
 import io.github.lxgaming.sumsang.util.Toolbox;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -34,12 +33,12 @@ import net.minecraft.world.World;
 
 public class NalaxyGote7Item extends Item {
     
-    private static final ResourceLocation DETONATE_ADVANCEMENT = new ResourceLocation(Reference.ID, "detonate");
-    private static final ResourceLocation OVER_9000_ADVANCEMENT = new ResourceLocation(Reference.ID, "over_9000");
+    private static final ResourceLocation DETONATE_ADVANCEMENT = new ResourceLocation(Sumsang.ID, "detonate");
+    private static final ResourceLocation OVER_9000_ADVANCEMENT = new ResourceLocation(Sumsang.ID, "over_9000");
     
     public NalaxyGote7Item() {
         super(new Properties().group(ItemGroup.MISC).maxStackSize(16));
-        setRegistryName(Reference.ID, "nalaxygote7");
+        setRegistryName(Sumsang.ID, "nalaxygote7");
     }
     
     @Override
@@ -70,6 +69,4 @@ public class NalaxyGote7Item extends Item {
         
         return new ActionResult<>(ActionResultType.SUCCESS, itemStack);
     }
-    
-    
 }

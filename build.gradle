@@ -21,7 +21,7 @@ targetCompatibility = 1.8
 
 group = "io.github.lxgaming"
 archivesBaseName = "Sumsang"
-version = "1.2.0"
+version = "1.14.4-1.2.1"
 
 minecraft {
     mappings(channel: "snapshot", version: "20190719-1.14.3")
@@ -48,6 +48,7 @@ configurations {
     }
 
     build.dependsOn("signJar")
+    compileJava.dependsOn("filterJava")
 }
 
 repositories {
@@ -55,7 +56,13 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraftforge:forge:1.14.4-28.0.13")
+    minecraft("net.minecraftforge:forge:1.14.4-28.1.0")
+}
+
+compileJava {
+    doFirst {
+        source = filterJava.outputs
+    }
 }
 
 processResources {
@@ -66,6 +73,13 @@ processResources {
         include("META-INF/mods.toml")
         expand("version": version)
     }
+}
+
+task filterJava(type: Sync) {
+    from(sourceSets.main.java)
+    into("$buildDir/tmp/$name")
+
+    expand(version: version)
 }
 
 task signJar {

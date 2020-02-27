@@ -21,10 +21,10 @@ targetCompatibility = 1.8
 
 group = "io.github.lxgaming"
 archivesBaseName = "Sumsang"
-version = "forge-1.15.1-1.2.1"
+version = "1.15.2-1.2.1"
 
 minecraft {
-    mappings(channel: "snapshot", version: "20190719-1.14.3")
+    mappings(channel: "stable", version: "60-1.15")
     runs {
         client = {
             properties("forge.logging.markers": "SCAN,REGISTRIES,REGISTRYDUMP")
@@ -56,7 +56,7 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraftforge:forge:1.15.1-30.0.36")
+    minecraft("net.minecraftforge:forge:1.15.2-31.1.0")
 }
 
 compileJava {
@@ -67,7 +67,7 @@ compileJava {
 
 processResources {
     from("LICENSE")
-    rename("LICENSE", "LICENSE-" + archivesBaseName)
+    rename("LICENSE", "LICENSE-${archivesBaseName}")
 
     from (sourceSets.main.resources.srcDirs) {
         include("META-INF/mods.toml")

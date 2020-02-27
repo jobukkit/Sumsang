@@ -63,7 +63,7 @@ public class Configuration {
     }
     
     @SubscribeEvent
-    public void configReloading(ModConfig.ConfigReloading event) {
+    public void configReloading(ModConfig.Reloading event) {
         Sumsang.getInstance().getLogger().info("Reloaded config file {}", event.getConfig().getFileName());
     }
     

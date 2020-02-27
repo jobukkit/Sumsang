@@ -59,7 +59,7 @@ public class NalaxyGote7Item extends Item {
                 Toolbox.grantAdvancement(player, OVER_9000_ADVANCEMENT);
             }
             
-            world.createExplosion(null, player.posX, player.posY, player.posZ, (explosivePower / 10), true, Explosion.Mode.DESTROY);
+            world.createExplosion(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), (explosivePower / 10), true, Explosion.Mode.DESTROY);
         }
         
         int poisonTime = Sumsang.getInstance().getConfiguration().getPoisonTime().get();

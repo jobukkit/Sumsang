@@ -21,7 +21,7 @@ targetCompatibility = 1.8
 
 group = "io.github.lxgaming"
 archivesBaseName = "Sumsang"
-version = "1.14.4-1.2.1"
+version = "forge-1.15.1-1.2.1"
 
 minecraft {
     mappings(channel: "snapshot", version: "20190719-1.14.3")
@@ -56,7 +56,7 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraftforge:forge:1.14.4-28.1.0")
+    minecraft("net.minecraftforge:forge:1.15.1-30.0.36")
 }
 
 compileJava {

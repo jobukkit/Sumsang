@@ -28,6 +28,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
@@ -59,7 +60,8 @@ public class NalaxyGote7Item extends Item {
                 Toolbox.grantAdvancement(player, OVER_9000_ADVANCEMENT);
             }
             
-            world.createExplosion(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), (explosivePower / 10), true, Explosion.Mode.DESTROY);
+            BlockPos position = player.getPosition();
+            world.createExplosion(null, position.getX(), position.getY(), position.getZ(), (explosivePower / 10), true, Explosion.Mode.DESTROY);
         }
         
         int poisonTime = Sumsang.getInstance().getConfiguration().getPoisonTime().get();

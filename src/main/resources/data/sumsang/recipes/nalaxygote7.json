@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "III",
-    "IGI",
-    "IRI"
+    "SSS",
+    "SUS",
+    "SGS"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:iron_ingot"
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "U": {
+      "tag": "forge:ingots/uranium"
     },
     "G": {
-      "item": "minecraft:gold_ingot"
-    },
-    "R": {
-      "item": "minecraft:redstone"
+      "tag": "forge:glass_panes"
     }
   },
   "result": {

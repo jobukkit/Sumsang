@@ -36,7 +36,7 @@ public class Configuration {
         this.explosivePower = builder
                 .comment("Explosive Power")
                 .translation("config.sumsang.explosive_power")
-                .define("explosivePower", 20);
+                .define("explosivePower", 14);
         
         this.poisonOnDetonate = builder
                 .comment("Poison on detonate?")

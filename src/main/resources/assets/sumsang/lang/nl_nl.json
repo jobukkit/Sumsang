@@ -1,0 +1,13 @@
+{
+  "advancements.detonate.title": "Ik voel mijn benen niet!",
+  "advancements.detonate.description": "Dat is omdat je armen weggeblazen zijn",
+  "advancements.over_9000.title": "Het is meer dan 9000!",
+  "advancements.over_9000.description": "In tegenstelling tot de downloads van deze mod ;-;",
+  "advancements.root.title": "Herroepingsactie",
+  "advancements.root.description": "Maak een Sumsang Nalaxy Gote 7",
+  "config.sumsang.explosive_power": "Explosiekracht",
+  "config.sumsang.poison_on_detonate": "Vergiftig bij ontploffen",
+  "config.sumsang.poison_time": "Vergiftingsduur",
+  "config.sumsang.right_click_detonator": "Ontplof bij rechtermuisklik",
+  "item.sumsang.nalaxygote7": "Nalaxy Gote 7"
+}

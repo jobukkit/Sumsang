@@ -19,7 +19,6 @@ package io.github.lxgaming.sumsang;
 import io.github.lxgaming.sumsang.configuration.Configuration;
 import io.github.lxgaming.sumsang.listener.RegistryListener;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.StartupMessageManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -46,8 +45,7 @@ public class Sumsang {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Sumsang.getInstance().getConfiguration().getSpec());
         
         FMLJavaModLoadingContext.get().getModEventBus().register(new RegistryListener());
-        
-        StartupMessageManager.addModMessage(String.format("%s v%s Initialized", Sumsang.NAME, Sumsang.VERSION));
+
         getLogger().info("{} v{} Initialized", Sumsang.NAME, Sumsang.VERSION);
     }
     
